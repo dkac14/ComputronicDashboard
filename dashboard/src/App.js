@@ -1,25 +1,17 @@
-import logo from './logo.svg';
 import './App.css';
+import WelcomeGate from './WelcomeGate';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="App"> 
+      <WelcomeGate>
+        <header className="App-header">
+          <h1>Contenido Exclusivo</h1>
+          <p>¡Has desbloqueado el contenido exclusivo de la web!</p>
+        </header>
+      </WelcomeGate>  
     </div>
   );
 }
-
 export default App;
+
