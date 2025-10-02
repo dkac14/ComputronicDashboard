@@ -1,27 +1,37 @@
 import React, { useState } from 'react'; 
 import './App.css';
 import WelcomeGate from './WelcomeGate';
-import SearchBar from './SearchBar'; 
+import SearchBar from './SearchBar';
+import InfoBox from './InfoBox'; // 👈 nuevo
 
 function App() {
   const [isUnlocked, setIsUnlocked] = useState(false);
+
   const handleUnlock = () => {
     setIsUnlocked(true);
   };
 
   return (
     <div className="App"> 
-      {isUnlocked && <SearchBar />} 
       {!isUnlocked ? (
         <WelcomeGate onUnlock={handleUnlock}>
           <header className="App-header">
-          <h2>Lo destacado del dia</h2>
+            <h2>Lo destacado del día</h2>
           </header>
         </WelcomeGate>
       ) : (
-        <header className="Unlocked-Header">
-        <h2>Lo destacado del dia</h2>
-        </header>
+        <>
+          <SearchBar />
+
+          <header className="Unlocked-Header">
+            <h2>Lo destacado del día</h2>
+          </header>
+
+          {/* 👇 Cuadro de información */}
+          <InfoBox title="Información destacada">
+            <p>Aquí podrás agregar información más adelante (notas, recordatorios, KPIs, etc.).</p>
+          </InfoBox>
+        </>
       )}
     </div>
   );
