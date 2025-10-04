@@ -4,7 +4,7 @@ const SearchBar = ({ onResults }) => {
   const [query, setQuery] = useState("");
 
   const handleSearch = async () => {
-    const res = await fetch(`http://localhost:5000/search?q=${query}`);
+    const res = await fetch(`http://localhost:5000/search?q=${encodeURIComponent(query)}`);
     const data = await res.json();
     onResults(data);
   };
@@ -13,7 +13,7 @@ const SearchBar = ({ onResults }) => {
     <div className="search-bar-container">
       <input
         type="text"
-        placeholder="Buscar contenido..."
+        placeholder="Buscar publicaciones NASA..."
         className="search-input"
         value={query}
         onChange={(e) => setQuery(e.target.value)}
