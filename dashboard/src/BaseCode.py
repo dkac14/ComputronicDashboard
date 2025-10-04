@@ -5,7 +5,7 @@ import time
 import os
 import openai
 
-os.getenv("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")
+
 BASE = "https://osdr.nasa.gov/osdr/data/search"
 
 def fetch_page(term="", from_idx=0, size=50):
